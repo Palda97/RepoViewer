@@ -41,6 +41,8 @@ class UserRepository(
 
     val liveErrorCode = SingleLiveEvent<ErrorCode>()
 
+    val liveRepositoryLoading = MutableLiveData(false)
+
     suspend fun cacheRepositories(username: String) {
         val repositories = when (val res = downloadRepositories(username)) {
             is Either.Left -> {
