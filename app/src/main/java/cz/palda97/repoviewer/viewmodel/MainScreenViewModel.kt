@@ -24,6 +24,9 @@ class MainScreenViewModel : ViewModel() {
         TODO()
     }
 
+    val liveErrorStatus: LiveData<UserRepository.ErrorCode>
+        get() = repository.liveErrorCode
+
     companion object {
 
         private const val USER = "USER"
