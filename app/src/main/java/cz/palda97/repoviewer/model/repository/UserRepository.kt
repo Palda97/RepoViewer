@@ -34,4 +34,21 @@ class UserRepository(
         )
         return Either.Right(repositories)
     }
+
+    private suspend fun storeRepositories(repositories: List<Repository>) {
+        repositoryDao.replaceRepositories(repositories)
+    }
+
+    val liveErrorCode = SingleLiveEvent<ErrorCode>()
+
+    suspend fun cacheRepositories(username: String) {
+        val repositories = when (val res = downloadRepositories(username)) {
+            is Either.Left -> {
+                liveErrorCode.postValue(res.value)
+                return
+            }
+            is Either.Right -> res.value
+        }
+        storeRepositories(repositories)
+    }
 }
