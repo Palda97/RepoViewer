@@ -14,9 +14,11 @@ class MainScreenViewModel : ViewModel() {
     private val repository: UserRepository by inject(UserRepository::class.java)
 
     fun showRepositoriesButton(username: String) {
+        repository.liveRepositoryLoading.value = true
         sharedPreferences.edit().putString(USER, username).apply()
         CoroutineScope(Dispatchers.IO).launch {
             repository.cacheRepositories(username)
+            repository.liveRepositoryLoading.postValue(false)
         }
     }
 
@@ -26,6 +28,9 @@ class MainScreenViewModel : ViewModel() {
 
     val liveErrorStatus: LiveData<UserRepository.ErrorCode>
         get() = repository.liveErrorCode
+
+    val liveLoading: LiveData<Boolean>
+        get() = repository.liveRepositoryLoading
 
     companion object {
 
