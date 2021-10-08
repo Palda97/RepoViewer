@@ -60,4 +60,9 @@ dependencies {
 
     // Google Play services
     implementation 'com.google.android.gms:play-services-base:17.6.0'
+
+    // Koin
+    def koin_version = "3.1.2"
+    // Koin main features for Android (Scope,ViewModel ...)
+    implementation "io.insert-koin:koin-android:$koin_version"
 }
