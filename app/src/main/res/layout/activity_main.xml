@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <!-- -->
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="cz.palda97.repoviewer.viewmodel.MainScreenViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
@@ -13,6 +17,7 @@
         tools:context=".view.MainActivity">
 
         <LinearLayout
+            android:id="@+id/central_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -38,8 +43,18 @@
                 android:id="@+id/show_repositories_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:enabled="@{!viewModel.liveLoading.booleanValue()}"
                 android:text="@string/show_repositories" />
         </LinearLayout>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="@{viewModel.liveLoading.booleanValue() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@id/central_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/about_app_button"
