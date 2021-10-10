@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RepoViewer">
         <activity
+            android:name=".view.repodetail.RepoDetailActivity"
+            android:exported="true"
+            android:parentActivityName=".view.userdetail.UserDetailActivity"
+            android:theme="@style/Theme.RepoViewer.NoActionBar" />
+        <activity
             android:name=".view.userdetail.UserDetailActivity"
             android:exported="true"
             android:parentActivityName=".view.mainscreen.MainActivity" />

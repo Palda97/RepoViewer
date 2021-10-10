@@ -6,4 +6,6 @@
     <string name="user_has_not_been_found">User has not been found.</string>
     <string name="there_is_a_connection_problem">There is a connection problem.</string>
     <string name="there_is_a_parsing_problem">There is a parsing problem.</string>
+    <string name="tab_text_1">Recent commits</string>
+    <string name="tab_text_2">Branches</string>
 </resources>
