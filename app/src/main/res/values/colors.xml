@@ -11,4 +11,7 @@
     <color name="github_blue">#030d20</color>
     <color name="github_green">#16a754</color>
     <color name="darker_github_green">#008738</color>
+
+    <color name="black_secondary">#8a000000</color>
+    <color name="white_secondary">#8affffff</color>
 </resources>
