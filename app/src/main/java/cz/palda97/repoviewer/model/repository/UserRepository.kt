@@ -43,14 +43,15 @@ class UserRepository(
 
     val liveRepositoryLoading = MutableLiveData(false)
 
-    suspend fun cacheRepositories(username: String) {
+    suspend fun cacheRepositories(username: String): Boolean {
         val repositories = when (val res = downloadRepositories(username)) {
             is Either.Left -> {
                 liveErrorCode.postValue(res.value)
-                return
+                return false
             }
             is Either.Right -> res.value
         }
         storeRepositories(repositories)
+        return true
     }
 }

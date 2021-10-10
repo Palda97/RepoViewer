@@ -2,7 +2,9 @@ package cz.palda97.repoviewer.viewmodel
 
 import androidx.lifecycle.*
 import cz.palda97.repoviewer.model.SharedPreferencesFactory
+import cz.palda97.repoviewer.model.SingleLiveEvent
 import cz.palda97.repoviewer.model.repository.UserRepository
+import cz.palda97.repoviewer.view.UserDetailActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +19,9 @@ class MainScreenViewModel : ViewModel() {
         repository.liveRepositoryLoading.value = true
         sharedPreferences.edit().putString(USER, username).apply()
         CoroutineScope(Dispatchers.IO).launch {
-            repository.cacheRepositories(username)
+            if (repository.cacheRepositories(username)) {
+                _liveStartActivity.postValue(UserDetailActivity::class.java)
+            }
             repository.liveRepositoryLoading.postValue(false)
         }
     }
@@ -31,6 +35,10 @@ class MainScreenViewModel : ViewModel() {
 
     val liveLoading: LiveData<Boolean>
         get() = repository.liveRepositoryLoading
+
+    private val _liveStartActivity = SingleLiveEvent<Class<*>>()
+    val liveStartActivity: LiveData<Class<*>>
+        get() = _liveStartActivity
 
     companion object {
 
