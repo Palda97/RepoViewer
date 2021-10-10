@@ -54,4 +54,6 @@ class UserRepository(
         storeRepositories(repositories)
         return true
     }
+
+    val liveRepositories = repositoryDao.liveAllRepositories()
 }

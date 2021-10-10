@@ -20,6 +20,16 @@ class UserDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = DataBindingUtil.setContentView(this, R.layout.activity_user_detail)
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        val adapter = RepositoryRecyclerAdapter { TODO() }
+        binding.repoRecyclerview.adapter = adapter
+        viewModel.liveRepositories.observe(this, {
+            val repositories = it ?: return@observe
+            adapter.updateRepositoryList(repositories)
+        })
     }
 
     override fun onDestroy() {
