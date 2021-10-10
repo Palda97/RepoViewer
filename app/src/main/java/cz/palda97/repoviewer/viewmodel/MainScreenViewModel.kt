@@ -42,7 +42,7 @@ class MainScreenViewModel : ViewModel() {
 
     companion object {
 
-        private const val USER = "USER"
+        const val USER = "USER"
 
         fun getInstance(owner: ViewModelStoreOwner) =
             ViewModelProvider(owner).get(MainScreenViewModel::class.java)

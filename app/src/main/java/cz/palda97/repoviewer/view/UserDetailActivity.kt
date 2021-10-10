@@ -22,6 +22,7 @@ class UserDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = DataBindingUtil.setContentView(this, R.layout.activity_user_detail)
         setupRecyclerView()
+        setupTitle()
     }
 
     private fun setupRecyclerView() {
@@ -32,6 +33,10 @@ class UserDetailActivity : AppCompatActivity() {
             val repositories = it ?: return@observe
             adapter.updateRepositoryList(repositories)
         })
+    }
+
+    private fun setupTitle() {
+        supportActionBar?.title = viewModel.title
     }
 
     override fun onDestroy() {
