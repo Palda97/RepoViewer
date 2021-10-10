@@ -1,5 +1,6 @@
 package cz.palda97.repoviewer.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         setupShowRepositoriesButton()
         setupAboutAppButton()
         setupErrorCode()
+        checkForNewActivityRequest()
     }
 
     private fun setupShowRepositoriesButton() {
@@ -54,6 +56,14 @@ class MainActivity : AppCompatActivity() {
             Snackbar
                 .make(binding.root, errorCode.msg, Snackbar.LENGTH_LONG)
                 .show()
+        })
+    }
+
+    private fun checkForNewActivityRequest() {
+        viewModel.liveStartActivity.observe(this, {
+            val activityClass = it ?: return@observe
+            val intent = Intent(this, activityClass)
+            startActivity(intent)
         })
     }
 
