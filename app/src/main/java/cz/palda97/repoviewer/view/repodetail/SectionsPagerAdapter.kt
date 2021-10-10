@@ -19,8 +19,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment = when (position) {
-        0 -> TODO("recent commits fragment")
-        1 -> TODO("branches fragment")
+        0 -> RecentCommitsFragment.newInstance()
+        1 -> BranchesFragment.newInstance()
         else -> throw UnsupportedOperationException("Missing fragment in SectionsPagerAdapter")
     }
 
