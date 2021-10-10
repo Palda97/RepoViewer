@@ -1,4 +1,4 @@
-package cz.palda97.repoviewer.view
+package cz.palda97.repoviewer.view.userdetail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

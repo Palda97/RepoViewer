@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RepoViewer">
         <activity
-            android:name=".view.UserDetailActivity"
+            android:name=".view.userdetail.UserDetailActivity"
             android:exported="true"
-            android:parentActivityName=".view.MainActivity" />
+            android:parentActivityName=".view.mainscreen.MainActivity" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.mainscreen.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package cz.palda97.repoviewer.view
+package cz.palda97.repoviewer.view.mainscreen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,7 @@ import com.google.android.material.snackbar.Snackbar
 import cz.palda97.repoviewer.R
 import cz.palda97.repoviewer.databinding.ActivityMainBinding
 import cz.palda97.repoviewer.model.repository.UserRepository
-import cz.palda97.repoviewer.viewmodel.MainScreenViewModel
+import cz.palda97.repoviewer.viewmodel.mainscreen.MainScreenViewModel
 
 class MainActivity : AppCompatActivity() {
 
