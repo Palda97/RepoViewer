@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="upperText"
+            type="String" />
+        <variable
+            name="bottomText"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="11dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{upperText}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAppearance="@style/ta_regular16_primary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{bottomText}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAppearance="@style/ta_regular14_secondary" />
+
+    </LinearLayout>
+
+</layout>
