@@ -5,12 +5,17 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import cz.palda97.repoviewer.R
 import cz.palda97.repoviewer.databinding.ActivityUserDetailBinding
+import cz.palda97.repoviewer.viewmodel.UserDetailViewModel
 
 class UserDetailActivity : AppCompatActivity() {
 
     private var _binding: ActivityUserDetailBinding? = null
     private val binding
         get() = _binding!!
+
+    private val viewModel by lazy {
+        UserDetailViewModel.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
