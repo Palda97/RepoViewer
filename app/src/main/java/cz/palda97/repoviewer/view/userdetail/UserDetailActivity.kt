@@ -1,4 +1,4 @@
-package cz.palda97.repoviewer.view
+package cz.palda97.repoviewer.view.userdetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import cz.palda97.repoviewer.R
 import cz.palda97.repoviewer.databinding.ActivityUserDetailBinding
 import cz.palda97.repoviewer.view.RecyclerViewCosmetics.addDividers
-import cz.palda97.repoviewer.viewmodel.UserDetailViewModel
+import cz.palda97.repoviewer.viewmodel.userdetail.UserDetailViewModel
 
 class UserDetailActivity : AppCompatActivity() {
 

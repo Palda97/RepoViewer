@@ -1,10 +1,11 @@
-package cz.palda97.repoviewer.viewmodel
+package cz.palda97.repoviewer.viewmodel.mainscreen
 
 import androidx.lifecycle.*
+import cz.palda97.repoviewer.model.SPConstants
 import cz.palda97.repoviewer.model.SharedPreferencesFactory
 import cz.palda97.repoviewer.model.SingleLiveEvent
 import cz.palda97.repoviewer.model.repository.UserRepository
-import cz.palda97.repoviewer.view.UserDetailActivity
+import cz.palda97.repoviewer.view.userdetail.UserDetailActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +18,7 @@ class MainScreenViewModel : ViewModel() {
 
     fun showRepositoriesButton(username: String) {
         repository.liveRepositoryLoading.value = true
-        sharedPreferences.edit().putString(USER, username).apply()
+        sharedPreferences.edit().putString(SPConstants.USER, username).apply()
         CoroutineScope(Dispatchers.IO).launch {
             if (repository.cacheRepositories(username)) {
                 _liveStartActivity.postValue(UserDetailActivity::class.java)
@@ -41,8 +42,6 @@ class MainScreenViewModel : ViewModel() {
         get() = _liveStartActivity
 
     companion object {
-
-        const val USER = "USER"
 
         fun getInstance(owner: ViewModelStoreOwner) =
             ViewModelProvider(owner).get(MainScreenViewModel::class.java)

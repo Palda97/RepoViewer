@@ -8,14 +8,14 @@
 
         <variable
             name="viewModel"
-            type="cz.palda97.repoviewer.viewmodel.MainScreenViewModel" />
+            type="cz.palda97.repoviewer.viewmodel.mainscreen.MainScreenViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/activity_padding"
-        tools:context=".view.MainActivity">
+        tools:context=".view.mainscreen.MainActivity">
 
         <Button
             android:id="@+id/about_app_button"
