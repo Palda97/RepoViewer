@@ -21,6 +21,7 @@ class RepoDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupTabs()
         setupTitle()
+        setupBackArrow()
     }
 
     private fun setupTabs() {
@@ -32,6 +33,11 @@ class RepoDetailActivity : AppCompatActivity() {
     }
 
     private fun setupTitle() {
-        binding.title.text = viewModel.title
+        title = viewModel.title
+    }
+
+    private fun setupBackArrow() {
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }
