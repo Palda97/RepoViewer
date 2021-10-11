@@ -1,0 +1,28 @@
+package cz.palda97.repoviewer.view.aboutapp
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import cz.palda97.repoviewer.databinding.ActivityAboutAppBinding
+import cz.palda97.repoviewer.viewmodel.aboutapp.AboutAppViewModel
+
+class AboutAppActivity : AppCompatActivity() {
+
+    private var _binding: ActivityAboutAppBinding? = null
+    private val binding
+        get() = _binding!!
+
+    val viewModel by lazy {
+        AboutAppViewModel.getInstance(this)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        _binding = ActivityAboutAppBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupAboutText()
+    }
+
+    private fun setupAboutText() {
+        binding.textView.text = viewModel.aboutText
+    }
+}
