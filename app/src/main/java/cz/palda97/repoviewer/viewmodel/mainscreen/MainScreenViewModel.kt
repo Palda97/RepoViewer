@@ -5,6 +5,7 @@ import cz.palda97.repoviewer.model.SPConstants
 import cz.palda97.repoviewer.model.SharedPreferencesFactory
 import cz.palda97.repoviewer.model.SingleLiveEvent
 import cz.palda97.repoviewer.model.repository.UserRepository
+import cz.palda97.repoviewer.view.aboutapp.AboutAppActivity
 import cz.palda97.repoviewer.view.userdetail.UserDetailActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +29,7 @@ class MainScreenViewModel : ViewModel() {
     }
 
     fun aboutAppButton() {
-        TODO()
+        _liveStartActivity.value = AboutAppActivity::class.java
     }
 
     val liveErrorStatus: LiveData<UserRepository.ErrorCode>
