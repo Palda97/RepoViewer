@@ -1,5 +1,6 @@
 package cz.palda97.repoviewer.view.userdetail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -23,10 +24,11 @@ class UserDetailActivity : AppCompatActivity() {
         _binding = DataBindingUtil.setContentView(this, R.layout.activity_user_detail)
         setupRecyclerView()
         setupTitle()
+        checkForNewActivityRequest()
     }
 
     private fun setupRecyclerView() {
-        val adapter = RepositoryRecyclerAdapter { TODO() }
+        val adapter = RepositoryRecyclerAdapter { viewModel.repositoryOnClick(it) }
         binding.repoRecyclerview.adapter = adapter
         binding.repoRecyclerview.addDividers(this)
         viewModel.liveRepositories.observe(this, {
@@ -37,6 +39,14 @@ class UserDetailActivity : AppCompatActivity() {
 
     private fun setupTitle() {
         supportActionBar?.title = viewModel.title
+    }
+
+    private fun checkForNewActivityRequest() {
+        viewModel.liveStartActivity.observe(this, {
+            val activityClass = it ?: return@observe
+            val intent = Intent(this, activityClass)
+            startActivity(intent)
+        })
     }
 
     override fun onDestroy() {
