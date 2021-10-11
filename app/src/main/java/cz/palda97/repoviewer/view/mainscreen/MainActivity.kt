@@ -9,6 +9,7 @@ import cz.palda97.repoviewer.R
 import cz.palda97.repoviewer.databinding.ActivityMainBinding
 import cz.palda97.repoviewer.model.repository.UserRepository
 import cz.palda97.repoviewer.viewmodel.mainscreen.MainScreenViewModel
+import cz.palda97.repoviewer.view.hideSoftKeyboard
 
 /**
  * The main activity. User can either fill in a Github username or click on about app button.
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupShowRepositoriesButton() {
         binding.showRepositoriesButton.setOnClickListener {
+            hideSoftKeyboard(it)
             viewModel.showRepositoriesButton(binding.nameField.text.toString())
         }
     }
