@@ -14,4 +14,13 @@
         <!-- Customize your theme here. -->
         <item name="textColorSecondary">@color/black_secondary</item>
     </style>
+
+    <style name="Theme.RepoViewer.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.RepoViewer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.RepoViewer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

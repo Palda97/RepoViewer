@@ -2,6 +2,7 @@ package cz.palda97.repoviewer.model.entity
 
 import com.google.gson.Gson
 import com.google.gson.JsonArray
+import com.google.gson.annotations.SerializedName
 
 class RepositoryFactory {
 
@@ -20,8 +21,14 @@ class RepositoryFactory {
 private data class NullableRepository(
     val id: Long,
     val name: String?,
+    @SerializedName("full_name") val fullName: String?,
     val description: String?
 ) {
     val repository: Repository?
-        get() = if (id != 0L && name != null) Repository(id, name, description) else null
+        get() = if (id != 0L && name != null && fullName != null) Repository(
+            id,
+            name,
+            fullName,
+            description
+        ) else null
 }

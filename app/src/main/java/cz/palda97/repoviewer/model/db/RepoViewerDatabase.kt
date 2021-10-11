@@ -4,17 +4,23 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import cz.palda97.repoviewer.model.db.dao.BranchDao
+import cz.palda97.repoviewer.model.db.dao.CommitDao
 import cz.palda97.repoviewer.model.db.dao.RepositoryDao
+import cz.palda97.repoviewer.model.entity.Branch
+import cz.palda97.repoviewer.model.entity.GitCommit
 import cz.palda97.repoviewer.model.entity.Repository
 
 @Database(
-    entities = [Repository::class],
-    version = 1,
+    entities = [Repository::class, GitCommit::class, Branch::class],
+    version = 2,
     exportSchema = true
 )
 abstract class RepoViewerDatabase : RoomDatabase() {
 
-    abstract fun serverDao(): RepositoryDao
+    abstract fun repositoryDao(): RepositoryDao
+    abstract fun commitDao(): CommitDao
+    abstract fun branchDao(): BranchDao
 
     companion object {
 
