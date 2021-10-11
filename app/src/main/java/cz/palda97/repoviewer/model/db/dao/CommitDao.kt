@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import cz.palda97.repoviewer.model.entity.GitCommit
 
+/**
+ * DAO for working with [GitCommit].
+ */
 @Dao
 abstract class CommitDao {
 
@@ -16,6 +19,9 @@ abstract class CommitDao {
     @Query("select * from gitcommit")
     abstract fun liveAllCommits(): LiveData<List<GitCommit>>
 
+    /**
+     * Replace already stored commits with the new ones.
+     */
     @Transaction
     open suspend fun replaceCommits(commits: List<GitCommit>) {
         deleteAll()
