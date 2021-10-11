@@ -9,6 +9,9 @@ import cz.palda97.repoviewer.R
 import cz.palda97.repoviewer.databinding.ListItemOneLineBinding
 import cz.palda97.repoviewer.model.entity.GitCommit
 
+/**
+ * RecyclerView adapter for the commit list.
+ */
 class CommitRecyclerAdapter() : RecyclerView.Adapter<CommitRecyclerAdapter.CommitViewHolder>() {
 
     private var commitList: List<GitCommit> = emptyList()

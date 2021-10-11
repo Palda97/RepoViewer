@@ -10,6 +10,9 @@ import cz.palda97.repoviewer.databinding.ActivityMainBinding
 import cz.palda97.repoviewer.model.repository.UserRepository
 import cz.palda97.repoviewer.viewmodel.mainscreen.MainScreenViewModel
 
+/**
+ * The main activity. User can either fill in a Github username or click on about app button.
+ */
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
