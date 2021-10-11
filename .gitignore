@@ -93,3 +93,5 @@ lint/tmp/
 # DB schemas
 schemas/
 
+# markdown backup files
+*.md.backup
