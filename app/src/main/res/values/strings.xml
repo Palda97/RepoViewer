@@ -11,4 +11,5 @@
     <string name="internal_error">Internal error.</string>
     <string name="author">David Paleček</string>
     <string name="made_with_love"><![CDATA[Made with <font color="#ff0000">&lt;3</font> by]]></string>
+    <string name="source">Source</string>
 </resources>

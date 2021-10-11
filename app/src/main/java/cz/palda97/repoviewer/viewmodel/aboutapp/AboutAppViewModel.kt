@@ -1,5 +1,8 @@
 package cz.palda97.repoviewer.viewmodel.aboutapp
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +19,15 @@ class AboutAppViewModel : ViewModel() {
         "${context.getString(R.string.made_with_love)}$BR${context.getString(R.string.author)}"
 
     val aboutText = HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY)
+
+    fun showSourceButton(context: Context) {
+        context.startActivity(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://github.com/Palda97/RepoViewer")
+            )
+        )
+    }
 
     companion object {
 

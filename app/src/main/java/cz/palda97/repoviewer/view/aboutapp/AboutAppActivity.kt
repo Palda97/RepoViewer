@@ -20,9 +20,16 @@ class AboutAppActivity : AppCompatActivity() {
         _binding = ActivityAboutAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupAboutText()
+        setupShowSourceButton()
     }
 
     private fun setupAboutText() {
         binding.textView.text = viewModel.aboutText
+    }
+
+    private fun setupShowSourceButton() {
+        binding.showSourceButton.setOnClickListener {
+            viewModel.showSourceButton(this)
+        }
     }
 }
