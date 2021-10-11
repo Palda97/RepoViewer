@@ -9,12 +9,12 @@ import cz.palda97.repoviewer.model.entity.Repository
 
 @Database(
     entities = [Repository::class],
-    version = 1,
+    version = 2,
     exportSchema = true
 )
 abstract class RepoViewerDatabase : RoomDatabase() {
 
-    abstract fun serverDao(): RepositoryDao
+    abstract fun repositoryDao(): RepositoryDao
 
     companion object {
 

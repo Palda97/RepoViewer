@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class Repository(
     @PrimaryKey(autoGenerate = false) val id: Long,
     val name: String,
+    val fullName: String,
     val description: String?
 )

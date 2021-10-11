@@ -13,7 +13,7 @@ object Koin {
 
     private val appModule = module {
         single { RepoViewerDatabase.getInstance(androidContext()) }
-        factory { get<RepoViewerDatabase>().serverDao() }
+        factory { get<RepoViewerDatabase>().repositoryDao() }
         single {
             UserRepository(
                 GithubIon(),
