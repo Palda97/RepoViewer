@@ -7,11 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import cz.palda97.repoviewer.databinding.ActivityRepoDetailBinding
 import cz.palda97.repoviewer.viewmodel.repodetail.RepoDetailViewModel
 
+/**
+ * Tabbed activity containing [RecentCommitsFragment] and [BranchesFragment].
+ */
 class RepoDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRepoDetailBinding
 
-    val viewModel by lazy {
+    private val viewModel by lazy {
         RepoDetailViewModel.getInstance(this)
     }
 

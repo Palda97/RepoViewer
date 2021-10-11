@@ -13,6 +13,9 @@ import cz.palda97.repoviewer.model.network.GithubIon
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
+/**
+ * Repository for gathering and providing repository commits and branches.
+ */
 class RepoRepository(
     private val githubIon: GithubIon,
     private val commitDao: CommitDao,
@@ -92,6 +95,9 @@ class RepoRepository(
         liveBranchStatus.postValue(StatusCode.OK)
     }
 
+    /**
+     * Download commits and branches and store them.
+     */
     suspend fun cache(repoFullName: String) = coroutineScope {
         val commits = launch { cacheCommits(repoFullName) }
         val branches = launch { cacheBranches(repoFullName) }

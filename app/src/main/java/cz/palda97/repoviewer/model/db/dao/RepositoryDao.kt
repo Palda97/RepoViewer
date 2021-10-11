@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import cz.palda97.repoviewer.model.entity.Repository
 
+/**
+ * DAO for working with [Repository].
+ */
 @Dao
 abstract class RepositoryDao {
 
@@ -16,6 +19,9 @@ abstract class RepositoryDao {
     @Query("select * from repository")
     abstract fun liveAllRepositories(): LiveData<List<Repository>>
 
+    /**
+     * Replace already stored repositories with the new ones.
+     */
     @Transaction
     open suspend fun replaceRepositories(repositories: List<Repository>) {
         deleteAll()

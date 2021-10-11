@@ -3,6 +3,9 @@ package cz.palda97.repoviewer.model.network
 import com.koushikdutta.ion.Ion
 import cz.palda97.repoviewer.RepoViewerApplication
 
+/**
+ * Ion class for communicating with Github API.
+ */
 class GithubIon {
 
     suspend fun getRepos(username: String) = Ion.with(RepoViewerApplication.context)

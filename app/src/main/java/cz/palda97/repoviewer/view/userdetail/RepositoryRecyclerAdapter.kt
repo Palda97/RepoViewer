@@ -9,6 +9,9 @@ import cz.palda97.repoviewer.R
 import cz.palda97.repoviewer.databinding.ListItemTwoLinesBinding
 import cz.palda97.repoviewer.model.entity.Repository
 
+/**
+ * RecyclerView adapter for the repository list.
+ */
 class RepositoryRecyclerAdapter(
     private val onClick: (Repository) -> Unit
 ) : RecyclerView.Adapter<RepositoryRecyclerAdapter.RepositoryViewHolder>() {

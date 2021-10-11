@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import cz.palda97.repoviewer.model.entity.Branch
 
+/**
+ * DAO for working with [Branch].
+ */
 @Dao
 abstract class BranchDao {
 
@@ -16,6 +19,9 @@ abstract class BranchDao {
     @Query("select * from branch")
     abstract fun liveAllBranches(): LiveData<List<Branch>>
 
+    /**
+     * Replace already stored branches with the new ones.
+     */
     @Transaction
     open suspend fun replaceBranches(branches: List<Branch>) {
         deleteAll()

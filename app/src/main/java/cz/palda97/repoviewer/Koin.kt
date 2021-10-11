@@ -10,6 +10,9 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
+/**
+ * Injection framework
+ */
 object Koin {
 
     private val appModule = module {
@@ -32,6 +35,10 @@ object Koin {
         }
     }
 
+    /**
+     * Initialize Koin.
+     * Run this at the application start.
+     */
     fun koinInit(context: Context) {
         startKoin {
             androidLogger()

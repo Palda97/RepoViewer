@@ -5,13 +5,16 @@ import android.os.Bundle
 import cz.palda97.repoviewer.databinding.ActivityAboutAppBinding
 import cz.palda97.repoviewer.viewmodel.aboutapp.AboutAppViewModel
 
+/**
+ * Activity for displaying some info about author and the application.
+ */
 class AboutAppActivity : AppCompatActivity() {
 
     private var _binding: ActivityAboutAppBinding? = null
     private val binding
         get() = _binding!!
 
-    val viewModel by lazy {
+    private val viewModel by lazy {
         AboutAppViewModel.getInstance(this)
     }
 

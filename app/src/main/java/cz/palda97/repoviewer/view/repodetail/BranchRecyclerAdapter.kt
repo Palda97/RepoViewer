@@ -9,6 +9,9 @@ import cz.palda97.repoviewer.R
 import cz.palda97.repoviewer.databinding.ListItemOneLineBinding
 import cz.palda97.repoviewer.model.entity.Branch
 
+/**
+ * RecyclerView adapter for the branch list.
+ */
 class BranchRecyclerAdapter() : RecyclerView.Adapter<BranchRecyclerAdapter.BranchViewHolder>() {
 
     private var branchList: List<Branch> = emptyList()

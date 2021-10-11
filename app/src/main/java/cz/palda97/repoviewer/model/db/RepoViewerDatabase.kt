@@ -11,6 +11,9 @@ import cz.palda97.repoviewer.model.entity.Branch
 import cz.palda97.repoviewer.model.entity.GitCommit
 import cz.palda97.repoviewer.model.entity.Repository
 
+/**
+ * Room database class for this application.
+ */
 @Database(
     entities = [Repository::class, GitCommit::class, Branch::class],
     version = 2,

@@ -12,13 +12,16 @@ import cz.palda97.repoviewer.view.RecyclerViewCosmetics.addDividers
 import cz.palda97.repoviewer.viewmodel.repodetail.RepoDetailViewModel
 import cz.palda97.repoviewer.viewmodel.repodetail.RepoDetailViewModel.Companion.msg
 
+/**
+ * Fragment containing a recycler view with the commit list.
+ */
 class RecentCommitsFragment : Fragment() {
 
     private var _binding: FragmentRecentCommitsBinding? = null
     private val binding
         get() = _binding!!
 
-    val viewModel by lazy {
+    private val viewModel by lazy {
         RepoDetailViewModel.getInstance(this)
     }
 
@@ -59,6 +62,9 @@ class RecentCommitsFragment : Fragment() {
 
     companion object {
 
+        /**
+         * Creates an instance of this fragment.
+         */
         fun newInstance() = RecentCommitsFragment()
     }
 }

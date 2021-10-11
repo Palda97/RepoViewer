@@ -9,6 +9,11 @@ import cz.palda97.repoviewer.databinding.ActivityUserDetailBinding
 import cz.palda97.repoviewer.view.RecyclerViewCosmetics.addDividers
 import cz.palda97.repoviewer.viewmodel.userdetail.UserDetailViewModel
 
+/**
+ * Activity containing a recycler view with the repository list.
+ * User can either navigate to the
+ * [RepoDetailActivity][cz.palda97.repoviewer.view.repodetail.RepoDetailActivity].
+ */
 class UserDetailActivity : AppCompatActivity() {
 
     private var _binding: ActivityUserDetailBinding? = null
