@@ -10,6 +10,9 @@ import cz.palda97.repoviewer.model.entity.RepositoryFactory
 import cz.palda97.repoviewer.model.network.GithubIon
 import java.lang.ClassCastException
 
+/**
+ * Repository for gathering and providing user's Github repositories.
+ */
 class UserRepository(
     private val githubIon: GithubIon,
     private val repositoryDao: RepositoryDao
@@ -43,6 +46,11 @@ class UserRepository(
 
     val liveRepositoryLoading = MutableLiveData(false)
 
+    /**
+     * Download and store repositories.
+     * Updates [liveErrorCode] on error.
+     * @return true on success, false otherwise.
+     */
     suspend fun cacheRepositories(username: String): Boolean {
         val repositories = when (val res = downloadRepositories(username)) {
             is Either.Left -> {
