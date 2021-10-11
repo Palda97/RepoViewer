@@ -27,6 +27,7 @@
             android:parentActivityName=".view.mainscreen.MainActivity" />
         <activity
             android:name=".view.mainscreen.MainActivity"
+            android:label="@string/main_activity_label"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
