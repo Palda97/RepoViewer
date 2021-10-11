@@ -3,7 +3,6 @@ package cz.palda97.repoviewer.model.repository
 import androidx.lifecycle.MutableLiveData
 import cz.palda97.repoviewer.log
 import cz.palda97.repoviewer.model.Either
-import cz.palda97.repoviewer.model.SingleLiveEvent
 import cz.palda97.repoviewer.model.db.dao.BranchDao
 import cz.palda97.repoviewer.model.db.dao.CommitDao
 import cz.palda97.repoviewer.model.entity.Branch
@@ -65,7 +64,7 @@ class RepoRepository(
     }
 
     val liveCommitStatus = MutableLiveData<StatusCode>()
-    val liveBranchStatus = SingleLiveEvent<StatusCode>()
+    val liveBranchStatus = MutableLiveData<StatusCode>()
 
     private suspend fun cacheCommits(repoFullName: String) {
         liveCommitStatus.postValue(StatusCode.LOADING)
