@@ -37,12 +37,12 @@ class RecentCommitsFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        val adapter = CommitRecyclerAdapter()
+        val adapter = CommitAdapter()
         binding.commitsRecyclerview.adapter = adapter
         binding.commitsRecyclerview.addDividers(requireContext())
         viewModel.liveCommits.observe(viewLifecycleOwner, {
             val commits = it ?: return@observe
-            adapter.updateCommitList(commits)
+            adapter.updateItemList(commits)
         })
     }
 

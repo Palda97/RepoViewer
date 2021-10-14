@@ -33,12 +33,12 @@ class UserDetailActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        val adapter = RepositoryRecyclerAdapter { viewModel.repositoryOnClick(it) }
+        val adapter = RepositoryAdapter { viewModel.repositoryOnClick(it) }
         binding.repoRecyclerview.adapter = adapter
         binding.repoRecyclerview.addDividers(this)
         viewModel.liveRepositories.observe(this, {
             val repositories = it ?: return@observe
-            adapter.updateRepositoryList(repositories)
+            adapter.updateItemList(repositories)
         })
     }
 
