@@ -2,4 +2,5 @@
 <resources>
 
     <attr name="textColorSecondary" format="color" />
+    <attr name="toolbarBackground" format="color" />
 </resources>
