@@ -37,12 +37,12 @@ class BranchesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        val adapter = BranchRecyclerAdapter()
+        val adapter = BranchAdapter()
         binding.commitsRecyclerview.adapter = adapter
         binding.commitsRecyclerview.addDividers(requireContext())
         viewModel.liveBranches.observe(viewLifecycleOwner, {
             val branches = it ?: return@observe
-            adapter.updateBranchList(branches)
+            adapter.updateItemList(branches)
         })
     }
 
